@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#a5b8d4">
+<title>USYS National Championship Series 2026 . Utah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #a5b8d4;
+  --card:       #243859;
+  --card-soft:  #2d4470;
+  --navy:       #0F2A56;
+  --red:        #D52B3B;
+  --red-bri:    #e63946;
+  --blue:       #4d7ad9;
+  --blue-bri:   #6b95e6;
+  --green:      #16a34a;
+  --green-bri:  #22c55e;
+  --gold:       #d4a017;
+  --gold-bri:   #ecbf3e;
+  --text:       #0F2A56;
+  --text-soft:  #1c2a47;
+  --text-dim:   #3a4b6b;
+  --shadow:     0 4px 14px rgba(15,42,86,.2);
+  --shadow-lg:  0 10px 24px rgba(15,42,86,.3);
+  --bebas:      'Barlow Condensed', sans-serif;
+  --font:       'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font); font-weight: 500;
+  background: var(--bg); color: var(--text);
+  min-height: 100vh; -webkit-font-smoothing: antialiased;
+  position: relative; overflow-x: hidden;
+}
+body::before {
+  content: ''; position: fixed;
+  top: 50%; left: 50%; transform: translate(-50%, -45%);
+  width: min(85vw, 760px); height: min(85vw, 760px);
+  background: url('./USYS_NatChampionships_2026_NYLife_RGB_DBGWhiteText.webp') center/contain no-repeat;
+  opacity: 0.14; pointer-events: none; z-index: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* DARK MODE */
+body.dark {
+  --bg:        #0F2A56;
+  --navy:      #ffffff;
+  --text:      #ffffff;
+  --text-soft: rgba(255,255,255,.85);
+  --text-dim:  rgba(255,255,255,.6);
+}
+body.dark::before { opacity: 0.08; }
+body { transition: background-color .25s, color .25s; }
+
+/* THEME TOGGLE */
+.theme-toggle-wrap {
+  position: relative; z-index: 5;
+  text-align: center;
+  padding: 10px 16px 4px;
+}
+.theme-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  cursor: pointer;
+  background: rgba(15,42,86,.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(15,42,86,.15);
+  border-radius: 22px;
+  padding: 5px 10px;
+  transition: background .2s, border-color .2s;
+}
+body.dark .theme-toggle {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.15);
+}
+.theme-toggle-icon { font-size: 13px; line-height: 1; }
+.toggle-track {
+  width: 28px; height: 16px;
+  background: rgba(15,42,86,.45);
+  border-radius: 9px;
+  position: relative;
+  transition: background .25s;
+}
+body.dark .toggle-track { background: var(--gold); }
+.toggle-thumb {
+  position: absolute; top: 2px; left: 2px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+  transition: transform .25s;
+}
+body.dark .toggle-thumb { transform: translateX(12px); }
+
+/* JAREFEREE SPONSOR BLOCK */
+.sponsor-block {
+  text-align: center;
+  padding: 20px 16px 10px;
+  position: relative; z-index: 1;
+}
+.sponsor-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: .26em;
+  color: #d4a017;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+body.dark .sponsor-eyebrow { color: #ecbf3e; opacity: 0.8; }
+.jareferee-mark {
+  display: inline-block;
+  background: #243859;
+  color: #fff;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-family: var(--bebas);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(15,42,86,.18);
+  transition: transform .15s, box-shadow .2s;
+}
+.jareferee-mark:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(15,42,86,.25); }
+
+/* HEADER */
+.site-header {
+  background: var(--card);
+  color: #fff;
+  padding: 18px 20px;
+  padding-top: calc(18px + env(safe-area-inset-top));
+  border-bottom: 3px solid var(--red);
+  box-shadow: var(--shadow);
+  position: relative; z-index: 2;
+  text-align: center;
+}
+.site-header-title {
+  font-family: var(--bebas); font-size: 26px; font-weight: 900;
+  letter-spacing: .05em; color: #fff; line-height: 1.05;
+  text-transform: uppercase;
+}
+.site-header-sub {
+  font-size: 13px; color: rgba(255,255,255,.75); font-weight: 600;
+  letter-spacing: .06em; margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* HERO */
+.hero {
+  padding: 28px 20px 8px;
+  text-align: center;
+  position: relative; z-index: 1;
+}
+.hero-welcome {
+  font-family: var(--bebas);
+  font-size: 34px; font-weight: 900;
+  color: var(--navy); letter-spacing: .04em;
+  text-transform: uppercase; line-height: 1;
+  margin-bottom: 8px;
+}
+.hero-tagline {
+  font-size: 14px; color: var(--text-soft); font-weight: 600;
+  max-width: 420px; margin: 0 auto;
+  line-height: 1.5;
+}
+.event-pill {
+  display: inline-flex; flex-direction: column; align-items: center;
+  background: var(--card); color: #fff;
+  border-radius: 10px;
+  padding: 14px 24px;
+  margin: 18px auto 0;
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.event-pill::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--red);
+}
+.event-pill-date {
+  font-family: var(--bebas); font-size: 18px; font-weight: 800;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.event-pill-place {
+  font-size: 12px; color: rgba(255,255,255,.78); margin-top: 3px;
+  letter-spacing: .03em;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  position: relative; z-index: 1;
+}
+
+/* SECTION TITLES */
+.section-title {
+  font-family: var(--bebas); font-size: 13px; font-weight: 800;
+  letter-spacing: .2em; color: var(--red); text-transform: uppercase;
+  margin: 28px 0 10px;
+  padding-left: 4px;
+}
+body.dark .section-title { color: var(--red-bri); }
+
+/* QUICK ACTION GRID */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 600px) {
+  .action-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.action-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--card);
+  transition: transform .15s, box-shadow .2s;
+  display: block;
+  position: relative;
+}
+body.dark .action-card {
+  background: var(--card-soft);
+  border-top-color: var(--gold);
+}
+.action-card:active { transform: translateY(1px); }
+.action-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.action-card.primary { border-top-color: var(--red); }
+.action-card.admin { border-top-color: var(--gold); }
+.action-icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.action-label {
+  font-family: var(--bebas); font-size: 16px; font-weight: 800;
+  letter-spacing: .04em; color: var(--navy);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+body.dark .action-label { color: #fff; }
+.action-sub {
+  font-size: 11px; color: var(--text-dim);
+  margin-top: 3px;
+  font-weight: 500;
+}
+body.dark .action-sub { color: rgba(255,255,255,.65); }
+.admin-pill {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--bebas);
+  font-size: 9px; font-weight: 800;
+  letter-spacing: .12em;
+  padding: 2px 7px;
+  border-radius: 8px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* SCHEDULE OVERVIEW */
+.schedule-block {
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px 0 4px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+body.dark .schedule-block { background: var(--card-soft); }
+.schedule-banner {
+  background: var(--card);
+  color: #fff;
+  padding: 10px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 6px;
+}
+.schedule-banner-title {
+  font-family: var(--bebas); font-size: 15px; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.schedule-banner-sub {
+  font-size: 11px; color: rgba(255,255,255,.72);
+  font-weight: 500;
+}
+.schedule-day {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(15,42,86,.08);
+  align-items: start;
+}
+body.dark .schedule-day { border-bottom-color: rgba(255,255,255,.08); }
+.schedule-day:last-child { border-bottom: none; }
+.schedule-day-date {
+  font-family: var(--bebas); font-size: 14px; font-weight: 800;
+  letter-spacing: .04em; color: var(--red); text-transform: uppercase;
+  line-height: 1.1;
+}
+body.dark .schedule-day-date { color: var(--red-bri); }
+.schedule-day-num {
+  font-family: var(--bebas); font-size: 26px; font-weight: 900;
+  color: var(--navy); line-height: 1;
+}
+body.dark .schedule-day-num { color: #fff; }
+.schedule-day-content {
+  font-size: 13px; color: var(--text-soft);
+  line-height: 1.5;
+}
+body.dark .schedule-day-content { color: rgba(255,255,255,.85); }
+.schedule-day-venues {
+  font-weight: 700; color: var(--navy);
+  margin-bottom: 3px;
+}
+body.dark .schedule-day-venues { color: #fff; }
+.schedule-day-detail {
+  font-size: 12px; color: var(--text-dim);
+}
+body.dark .schedule-day-detail { color: rgba(255,255,255,.65); }
+.schedule-day-tag {
+  display: inline-block;
+  background: rgba(213,43,59,.12);
+  color: var(--red);
+  font-family: var(--bebas);
+  font-size: 10px; font-weight: 800;
+  letter-spacing: .1em;
+  padding: 2px 7px;
+  border-radius: 8px;
+  margin-left: 4px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+body.dark .schedule-day-tag {
+  background: rgba(230,57,70,.2);
+  color: var(--red-bri);
+}
+.schedule-day-tag.gold {
+  background: rgba(212,160,23,.15);
+  color: var(--gold);
+}
+body.dark .schedule-day-tag.gold {
+  background: rgba(236,191,62,.18);
+  color: var(--gold-bri);
+}
+.schedule-day-tag.dim {
+  background: rgba(58,75,107,.12);
+  color: var(--text-dim);
+}
+body.dark .schedule-day-tag.dim {
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+}
+
+/* VENUE CARDS */
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 600px) {
+  .venue-grid { grid-template-columns: 1fr 1fr; }
+}
+.venue-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--red);
+}
+body.dark .venue-card {
+  background: var(--card-soft);
+  border-left-color: var(--red-bri);
+}
+.venue-name {
+  font-family: var(--bebas); font-size: 18px; font-weight: 900;
+  letter-spacing: .03em; color: var(--navy);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+body.dark .venue-name { color: #fff; }
+.venue-city {
+  font-size: 11px; color: var(--text-dim);
+  font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+body.dark .venue-city { color: rgba(255,255,255,.6); }
+.venue-address {
+  font-size: 13px; color: var(--text-soft);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+body.dark .venue-address { color: rgba(255,255,255,.85); }
+.venue-link {
+  display: inline-block;
+  background: var(--card);
+  color: #fff;
+  font-family: var(--bebas);
+  font-size: 12px; font-weight: 800;
+  letter-spacing: .08em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  transition: background .15s;
+}
+.venue-link:hover { background: var(--card-soft); }
+
+/* INFO BLOCK */
+.info-block {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--gold);
+}
+body.dark .info-block {
+  background: var(--card-soft);
+  border-left-color: var(--gold-bri);
+}
+.info-block p {
+  font-size: 13px; color: var(--text-soft);
+  line-height: 1.55;
+}
+body.dark .info-block p { color: rgba(255,255,255,.85); }
+.info-block p + p { margin-top: 8px; }
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 24px 16px 32px;
+  position: relative; z-index: 1;
+}
+.site-footer-text {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: .04em;
+  line-height: 1.6;
+}
+body.dark .site-footer-text { color: rgba(255,255,255,.55); }
+.site-footer-text a { color: var(--red); font-weight: 700; }
+body.dark .site-footer-text a { color: var(--red-bri); }
+</style>
+</head>
+<body>
+
+<!-- THEME TOGGLE -->
+<div class="theme-toggle-wrap">
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <span class="theme-toggle-icon">☀</span>
+    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+    <span class="theme-toggle-icon">☾</span>
+  </button>
+</div>
+
+<!-- JAREFEREE SPONSOR BLOCK -->
+<div class="sponsor-block">
+  <div class="sponsor-eyebrow">Tournament Operations By</div>
+  <a href="https://jareferee.com" class="jareferee-mark" target="_blank" rel="noopener">JAReferee</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header-title">USYS National Championship Series</div>
+  <div class="site-header-sub">2026 . Utah</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="hero-welcome">Welcome, Officials</h1>
+  <p class="hero-tagline">
+    Referees and ref coaches working the 2026 USYS National Championship Series in Salt Lake City and Provo, this is your home base. Schedule, rules, resources, and your portal all live here.
+  </p>
+  <div class="event-pill">
+    <div class="event-pill-date">July 13 - 23, 2026</div>
+    <div class="event-pill-place">Salt Lake City . Provo</div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- QUICK ACTIONS -->
+  <div class="section-title">Your Tools</div>
+  <div class="action-grid">
+    <a href="./refportal-index.html" class="action-card primary">
+      <div class="action-icon">🏟</div>
+      <div class="action-label">Referee Portal</div>
+      <div class="action-sub">Schedule, payments, bulletins</div>
+    </a>
+    <a href="./index-APP.html" class="action-card">
+      <div class="action-icon">📝</div>
+      <div class="action-label">Coach App</div>
+      <div class="action-sub">Game feedback, evaluations</div>
+    </a>
+    <a href="./index-RULES.html" class="action-card">
+      <div class="action-icon">📋</div>
+      <div class="action-label">Rules Walkthrough</div>
+      <div class="action-sub">Required reading</div>
+    </a>
+    <a href="./indexRefRes.html" class="action-card">
+      <div class="action-icon">📚</div>
+      <div class="action-label">Resources</div>
+      <div class="action-sub">Handbook, contacts, maps</div>
+    </a>
+    <a href="./ucc-index.html" class="action-card admin">
+      <div class="action-icon">⚙</div>
+      <div class="action-label">Command Center</div>
+      <div class="action-sub">Tournament operations</div>
+      <span class="admin-pill">Admin · PIN</span>
+    </a>
+  </div>
+
+  <!-- SCHEDULE OVERVIEW -->
+  <div class="section-title">Schedule Overview . Boys</div>
+  <div class="schedule-block">
+    <div class="schedule-banner">
+      <div class="schedule-banner-title">Group Stage → Finals</div>
+      <div class="schedule-banner-sub">All times Mountain</div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">MON</div>
+        <div class="schedule-day-num">7/13</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC + Epic <span class="schedule-day-tag">Day 1</span></div>
+        <div class="schedule-day-detail">17U / 19U at RAC . 16U at Epic . 8:00am - 4:30pm</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">TUE</div>
+        <div class="schedule-day-num">7/14</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC + Epic</div>
+        <div class="schedule-day-detail">17U / 19U at RAC . 16U at Epic . 8:00am - 4:30pm</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">WED</div>
+        <div class="schedule-day-num">7/15</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC + Epic</div>
+        <div class="schedule-day-detail">16U / 19U at RAC . 17U at Epic . 8:00am - 4:30pm</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">THU</div>
+        <div class="schedule-day-num">7/16</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC + Epic <span class="schedule-day-tag dim">Epic: No Lights</span></div>
+        <div class="schedule-day-detail">15U / 14U at RAC . 13U at Epic . 8:00am - 2:30pm</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">FRI</div>
+        <div class="schedule-day-num">7/17</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC + Epic <span class="schedule-day-tag dim">Epic: No Lights</span></div>
+        <div class="schedule-day-detail">QFs (19/17/16) + 15U / 14U at RAC . 13U / 14U at Epic</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">SAT</div>
+        <div class="schedule-day-num">7/18</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC + Epic <span class="schedule-day-tag">Semifinals</span></div>
+        <div class="schedule-day-detail">SFs (19/17/16) + 13U / 14U at RAC . 15U / 14U at Epic</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">MON</div>
+        <div class="schedule-day-num">7/20</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC only <span class="schedule-day-tag gold">Finals begin</span></div>
+        <div class="schedule-day-detail">19U / 17U / 16U Finals + 15U / 13U QFs + 14U QFs</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">TUE</div>
+        <div class="schedule-day-num">7/21</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC only <span class="schedule-day-tag">Semifinals</span></div>
+        <div class="schedule-day-detail">15U / 14U / 13U Semifinals</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div>
+        <div class="schedule-day-date">THU</div>
+        <div class="schedule-day-num">7/23</div>
+      </div>
+      <div class="schedule-day-content">
+        <div class="schedule-day-venues">RAC only <span class="schedule-day-tag gold">Championship</span></div>
+        <div class="schedule-day-detail">15U / 14U / 13U Finals . 8:00am + 10:15am</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENUES -->
+  <div class="section-title">Venues</div>
+  <div class="venue-grid">
+    <div class="venue-card">
+      <div class="venue-name">Regional Athletic Complex</div>
+      <div class="venue-city">Salt Lake City</div>
+      <div class="venue-address">
+        2280 Rose Park Lane<br>
+        Salt Lake City, UT 84116
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Regional+Athletic+Complex+2280+Rose+Park+Lane+Salt+Lake+City+UT+84116" class="venue-link" target="_blank" rel="noopener">Open in Maps →</a>
+    </div>
+    <div class="venue-card">
+      <div class="venue-name">Epic Sports Park</div>
+      <div class="venue-city">Provo</div>
+      <div class="venue-address">
+        1200 Epic Lane<br>
+        Provo, UT 84601
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Epic+Sports+Park+1200+Epic+Lane+Provo+UT+84601" class="venue-link" target="_blank" rel="noopener">Open in Maps →</a>
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="section-title">For Officials</div>
+  <div class="info-block">
+    <p><strong>Working both venues?</strong> Plan for roughly 45 minutes between Regional Athletic Complex and Epic Sports Park. Your assignor will respect travel time when building your schedule.</p>
+    <p><strong>Game schedule and assignments</strong> for your specific games will appear in the Referee Portal once published. Bring water, sunscreen, and a backup jersey.</p>
+    <p><strong>Questions?</strong> Your liaison contact and tournament officials are listed inside the Referee Portal and Resources.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-text">
+    Tournament operations powered by <a href="https://jareferee.com" target="_blank" rel="noopener">JAReferee.com</a><br>
+    USYS National Championship Series 2026 . Powered by New Balance
+  </div>
+</footer>
+
+<script>
+(function() {
+  // THEME TOGGLE with localStorage persistence
+  var THEME_KEY = 'ncs_theme';
+  var body = document.body;
+  var toggle = document.getElementById('themeToggle');
+
+  function applyTheme(t) {
+    if (t === 'dark') body.classList.add('dark');
+    else body.classList.remove('dark');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch(e) {}
+  if (saved === 'dark') applyTheme('dark');
+  else if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme('dark');
+  }
+
+  toggle.addEventListener('click', function() {
+    var isDark = body.classList.toggle('dark');
+    try { localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light'); } catch(e) {}
+  });
+})();
+</script>
+</body>
+</html>
